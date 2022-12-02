@@ -28,9 +28,18 @@ const cotizo = ()=> {
           btnEnviar.classList.remove("ocultar")
 }
 
+const loading = ()=> `<img src="./images/Ellipsis-1.1s-44px.gif" alt="GIFT" width="40px">  `
+
+
 const realizarCotizacion = ()=> {
     if (datosCompletos()) {
-        cotizo()
+        btnCotizar.innerHTML = loading()
+        setTimeout(() => {
+            cotizo()
+            btnCotizar.innerText = "COTIZAR"
+        }, 4000);
+        //Logica de SetTimeout
+        
     } else {
         alert("⛔️ Completa los valores solicitados.")
     }
